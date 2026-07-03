@@ -1,0 +1,3 @@
+<!-- android/app/src/main/AndroidManifest.xml এর <manifest> ট্যাগের ভেতরে,
+     <application> এর বাইরে এই লাইনটা বসান -->
+<uses-permission android:name="android.permission.INTERNET" />
