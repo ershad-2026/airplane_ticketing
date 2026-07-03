@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'register_screen.dart';
+import 'bottom_nav_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -8,25 +10,15 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 30),
-
-            const Icon(
-              Icons.flight_takeoff,
-              size: 80,
-              color: Colors.blue,
-            ),
-
-            const SizedBox(height: 20),
-
             const Text(
               "Welcome Back",
-              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -38,8 +30,10 @@ class LoginScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: "Email",
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+                hintText: "Enter your email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
 
@@ -49,23 +43,53 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
+                hintText: "Enter your password",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
 
             const SizedBox(height: 30),
 
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Login"),
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavScreen(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
             ),
 
             const SizedBox(height: 20),
 
             TextButton(
-              onPressed: () {},
-              child: const Text("Don't have an account? Register"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterScreen(),
+                  ),
+                );
+              },
+              child: const Text(
+                "Don't have an account? Register",
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
             ),
           ],
         ),
